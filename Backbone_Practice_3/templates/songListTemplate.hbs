@@ -1,0 +1,16 @@
+
+  Song List!!!<br><br>
+  <table cellspacing='1' cellpadding='10'  class="songsTable">
+    <tr>
+      <td class="heading">Movie Name</td>
+      <td class="heading">Song Name</td>
+    </tr>
+    {{#each employees}}
+      <tr>
+        <td>{{ this.movieName }}</br></td>
+        <td>{{ this.songName }}</br></td>
+      </tr>
+    {{/each}}
+  </table>
+  <br>
+  <button type="button" id='addMoreSongsBtn'>Add More Songs</button>

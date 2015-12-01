@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Array Prototype</title>
+    <script type="text/javascript">
+        (function(){
+            'user strict';
+
+            var myArray = [1,2]
+
+            Array.prototype.addArray = function(){
+              var total=0,
+              length = this.length;
+              for(i=0;i<length;i++){
+                total = total+parseInt(this[i]);
+              }
+              document.write(total)
+            }
+
+            myArray.addArray();
+
+
+        })()
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

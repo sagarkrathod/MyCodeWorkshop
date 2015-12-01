@@ -1,0 +1,35 @@
+body{
+  font-family: arial;
+  #songListContainer{
+    padding:30px;
+    float: left;
+  }
+  .songsTable{
+    background-color: #999;
+  }
+  .songsTable td{
+    background-color: #fff;
+  }
+  .songsTable .heading{
+    background-color: #ccc;
+    font-weight: bold;
+  }
+  button{
+    font-size: 14px;
+    font-weight: bold;
+    color:green;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .disabledBackground{
+    z-index:100;
+    width:100%;
+    height:100%;
+    background-color:#ccc;
+    position:absolute;
+    top:0;
+    left:0px;
+    opacity:0.5;
+  }
+  .overlay{z-index:999; background-color:#fff; border: 1px solid #999; position: absolute; top:20%; left:40%; padding:10px;}
+}
