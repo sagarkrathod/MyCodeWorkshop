@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      body{font-size: 30px; font-family: arial}
+      input{font-size: 30px;}
+      button{font-size: 30px;}
+    </style>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>
+    <script type="text/javascript">
+      // var testObject = { 'one': 1, 'two': 2, 'three': 3 };
+      // localStorage.setItem('Names',  JSON.stringify(testObject) );
+
+      var Questions = {'questions':{1:'What is your Name?'}};
+
+      //vamshi = {'name':'vamshi'};
+
+      Questions.questions[2]='What is your age';
+
+      console.log(Object.keys(Questions.questions).length)
+
+
+    </script>
+  </head>
+  <body>
+        Local Storage Value: <input type="text"> <button>Store Value</button>
+  </body>
+</html>
