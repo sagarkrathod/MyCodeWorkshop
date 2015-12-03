@@ -7,6 +7,7 @@
       body{font-size: 20px; font-family: arial}
       input{font-size: 20px;}
       button{font-size: 20px;}
+      .deleteQuestion{font-size: 14px; font-weight: bold; color:red; border: 2px solid;border-radius: 25px;background-color: #fff;cursor: pointer}
     </style>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>
     <script type="text/javascript">
@@ -27,8 +28,9 @@
         var qLength = Object.keys(tempParse.questions).length;
         if(qLength>0){
           for(i=0;i<qLength;i++){
-              console.dir(tempParse)
-              $('.QuestionContainer').append('<br><div>'+(i+1)+') '+tempParse.questions[i]+' <button class="deleteQuestion" question='+i+'>X</button></div><br>')
+            //console.log(tempParse.key(0))
+            //obj.key(1); // "meow"
+              $('.QuestionContainer').append('<div><br>'+(i+1)+') '+tempParse.questions[i]+' <button class="deleteQuestion" question='+i+'>X</button><br></div>')
           }
         }
 
