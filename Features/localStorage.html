@@ -21,22 +21,36 @@
         //Questions.questions[2]='What is your age';
         //Questions.questions[3]='What is your age Address';
 
+        $('.questionInput').focus()
 
         var tempParse = JSON.parse(localStorage.getItem('sessionQuestions'))
         var qLength = Object.keys(tempParse.questions).length;
         if(qLength>0){
           for(i=0;i<qLength;i++){
-              $('.QuestionContainer').append('<br>'+i+') '+tempParse.questions[i]+'<br>')
+              console.dir(tempParse)
+              $('.QuestionContainer').append('<br><div>'+(i+1)+') '+tempParse.questions[i]+' <button class="deleteQuestion" question='+i+'>X</button></div><br>')
           }
         }
 
+
+        $('.eraseQuestion').on('click',function(){
+          var confirmation = window.confirm("Are you sure you want to clear Local Storage?")
+          if (confirmation){
+            localStorage.clear();
+            location.reload();
+            alert('All Values From Local storage are deleted successfully!!!')
+            //$('.QuestionContainer').html("<br><br><p style='color:red'>All Values From Local storage are deleted successfully!!!")
+          }
+
+        })
 
         $('.AddQuestion').on('click',function(){
           var tempParse = JSON.parse(localStorage.getItem('sessionQuestions'))
           var qLength = Object.keys(tempParse.questions).length;
 
           if($('.questionInput').val() === ''){
-              alert('Please Enter Some Value!!!')
+              alert('Please Enter Some Value!!!');
+              $('.questionInput').focus()
           }
           else{
             //var tempNum = parseInt(Object.keys(Questions.questions).length+1);
@@ -48,25 +62,43 @@
 
 
             for(i=0;i<=qLength;i++){
-                $('.QuestionContainer').append('<br>'+i+') '+tempParse.questions[i]+'<br>')
+                $('.QuestionContainer').append('<div><br>'+ (i+1) +') '+tempParse.questions[i]+' <button class="deleteQuestion" question='+i+'>X</button></div><br>')
             }
             localStorage.setItem('sessionQuestions',JSON.stringify(tempParse));
 
-            $('.questionInput').val('')
+            $('.questionInput').val('').focus()
+
           }
 
         })
+        $( 'body').on( "click",".deleteQuestion",  function(){
+          var confirmation = window.confirm("Are you sure you want to Delete this Question?")
+          if (confirmation){
+            var tempParse = JSON.parse(localStorage.getItem('sessionQuestions'))
+            var qLength = Object.keys(tempParse.questions).length;
+            var Qindex = $(this).parent().find('button').attr('question')
+
+            tempParse.questions[Qindex] = undefined;
+            localStorage.setItem('sessionQuestions',JSON.stringify(tempParse));
+
+            console.log($(this).find('button').attr('question'))
+
+
+            console.log($(this).parent().remove())
+            //$('.QuestionContainer').html("<br><br><p style='color:red'>All Values From Local storage are deleted successfully!!!")
+          }
+        });
+        // $( ".deleteQuestion").bind( "click", function() {
+        //
+        // });
       })
-
-
-
-
     </script>
   </head>
   <body>
-        Local Storage Value: <input type="text" class="questionInput" value='some text'> <button class="AddQuestion">Store Value</button>
+        Local Storage Value: <input type="text" class="questionInput" value=''>
+        <button class="AddQuestion">Store Value to Local Storage</button>
+        <button class="eraseQuestion">Erase Values from Local torage</button>
         <div class="QuestionContainer">
-
         </div>
   </body>
 </html>
