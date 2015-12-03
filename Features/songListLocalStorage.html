@@ -19,23 +19,23 @@
                 localStorage.setItem('songs',[]); // Create localstorage if not present
               }
               //---------------------------------------------------------------------------------
-              _songsContianer = $('.songsContianer');
-              _songsTxt = $('.songsTxt');
+              this._songsContianer = $('.songsContianer');
+              this._songsTxt = $('.songsTxt');
           }
           SongsList.prototype._renderItems = function(clickEvent){
               _tempArray = localStorage.songs.split(','); // split localstorage into array eg. [1,2,3]
               if(clickEvent){
-                if(_songsTxt.val() !== ''){
+                if(this._songsTxt.val() !== ''){
                   _tempArray.push($('.songsTxt').val()) // push new values to existing array [1,2,3,4,5,6]
                   localStorage.setItem('songs',_tempArray); // store this new array string to localstorage again
-                  _songsTxt.val('').focus();
+                  this._songsTxt.val('').focus();
                 }
                 else alert('Enter some Value!!!') // validation
 
               }
-              _songsContianer.html('') // clearing the container before rendering list.
+              this._songsContianer.html('') // clearing the container before rendering list.
               for(i=1;i<_tempArray.length;i++){ // looping to render every record.
-                _songsContianer.append("<div>"+i+" ) "+_tempArray[i]+" <button class='deleteQuestion'>X</button><br></div>")
+                this._songsContianer.append("<div>"+i+" ) "+_tempArray[i]+" <button class='deleteQuestion'>X</button><br></div>")
               }
           }
           SongsList.prototype.removeStorage = function(){
@@ -43,9 +43,8 @@
             if (confirmation){
               localStorage.clear(); // clear entire local storage.
               alert('Local Storage Cleared, All songs are removed from the page!!!')
-              _songsContianer.remove();
+              this._songsContianer.remove();
             }
-
           }
 
           var songsList = new SongsList()
