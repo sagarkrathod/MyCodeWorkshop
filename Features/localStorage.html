@@ -4,27 +4,69 @@
     <meta charset="utf-8">
     <title></title>
     <style>
-      body{font-size: 30px; font-family: arial}
-      input{font-size: 30px;}
-      button{font-size: 30px;}
+      body{font-size: 20px; font-family: arial}
+      input{font-size: 20px;}
+      button{font-size: 20px;}
     </style>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>
     <script type="text/javascript">
-      // var testObject = { 'one': 1, 'two': 2, 'three': 3 };
-      // localStorage.setItem('Names',  JSON.stringify(testObject) );
+      $(document).ready(function(){
+        //var Questions = {'questions':{1:'What is your Name?'}};
 
-      var Questions = {'questions':{1:'What is your Name?'}};
+        if(localStorage.sessionQuestions === undefined){
+          localStorage.setItem('sessionQuestions',JSON.stringify({'questions':{}}));
+        }
 
-      //vamshi = {'name':'vamshi'};
+        //Questions.questions[1]='What is your Name';
+        //Questions.questions[2]='What is your age';
+        //Questions.questions[3]='What is your age Address';
 
-      Questions.questions[2]='What is your age';
 
-      console.log(Object.keys(Questions.questions).length)
+        var tempParse = JSON.parse(localStorage.getItem('sessionQuestions'))
+        var qLength = Object.keys(tempParse.questions).length;
+        if(qLength>0){
+          for(i=0;i<qLength;i++){
+              $('.QuestionContainer').append('<br>'+i+') '+tempParse.questions[i]+'<br>')
+          }
+        }
+
+
+        $('.AddQuestion').on('click',function(){
+          var tempParse = JSON.parse(localStorage.getItem('sessionQuestions'))
+          var qLength = Object.keys(tempParse.questions).length;
+
+          if($('.questionInput').val() === ''){
+              alert('Please Enter Some Value!!!')
+          }
+          else{
+            //var tempNum = parseInt(Object.keys(Questions.questions).length+1);
+            console.dir(tempParse)
+            console.log('qLength: ' + qLength)
+            tempParse.questions[qLength] = $('.questionInput').val();
+
+            $('.QuestionContainer').html('')
+
+
+            for(i=0;i<=qLength;i++){
+                $('.QuestionContainer').append('<br>'+i+') '+tempParse.questions[i]+'<br>')
+            }
+            localStorage.setItem('sessionQuestions',JSON.stringify(tempParse));
+
+            $('.questionInput').val('')
+          }
+
+        })
+      })
+
+
 
 
     </script>
   </head>
   <body>
-        Local Storage Value: <input type="text"> <button>Store Value</button>
+        Local Storage Value: <input type="text" class="questionInput" value='some text'> <button class="AddQuestion">Store Value</button>
+        <div class="QuestionContainer">
+
+        </div>
   </body>
 </html>
