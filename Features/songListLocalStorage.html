@@ -14,62 +14,55 @@
     <script type="text/javascript">
 
         $(document).ready(function(){
-          function LocalStorageRendered(param){
-              //---------------------------------------------------------------------------------
+          function SongsList(param){
               if(localStorage.songs === undefined){
                 localStorage.setItem('songs',[]); // Create localstorage if not present
               }
               //---------------------------------------------------------------------------------
               _songsContianer = $('.songsContianer');
               _songsTxt = $('.songsTxt');
-              this._renderItems = function(clickEvent){
-
-                  _tempArray = localStorage.songs.split(','); // split localstorage into array eg. [1,2,3]
-                  if(clickEvent){
-                    if(_songsTxt.val() !== ''){
-                      _tempArray.push($('.songsTxt').val()) // push new values to existing array [1,2,3,4,5,6]
-                      localStorage.setItem('songs',_tempArray); // store this new array string to localstorage again
-                      _songsTxt.val('').focus();
-                    }
-                    else alert('Enter some Value!!!') // validation
-
-                  }
-                  _songsContianer.html('') // clearing the container before rendering list.
-                  for(i=1;i<_tempArray.length;i++){ // looping to render every record.
-                    _songsContianer.append("<div>"+i+" ) "+_tempArray[i]+" <button class='deleteQuestion'>X</button><br></div>")
-                  }
-              }
-              //---------------------------------------------------------------------------------
-              _removeStorage = function(){
-                var confirmation = window.confirm("Are you sure you want to clear Local Storage?")
-                if (confirmation){
-                  localStorage.clear(); // clear entire local storage.
-                  alert('Local Storage Cleared, All songs are removed from the page!!!')
-                  _songsContianer.remove();
-                }
-
-              }
-              //---------------------------------------------------------------------------------
-              _removeItems = function(){
-
-              }
-              //---------------------------------------------------------------------------------
-              $('.addSong').on('click',function(){
-                  this._renderItems('clickEvent'); // call funciton to add new values.
-              }.bind(this));
-              //---------------------------------------------------------------------------------
-              $('.clearStorage').on('click',function(){
-                  _removeStorage(); // call funciton to clear localStorage
-              })
-              //---------------------------------------------------------------------------------
-              $( 'body').on( "click",".deleteQuestion",  function(){
-                  //_renderItems('clickEvent');
-                  alert('Delete functinality coming soon!!!')
-              })
-              //---------------------------------------------------------------------------------
           }
-          var localStorageRendered = new LocalStorageRendered()
-          localStorageRendered._renderItems();
+          SongsList.prototype._renderItems = function(clickEvent){
+              _tempArray = localStorage.songs.split(','); // split localstorage into array eg. [1,2,3]
+              if(clickEvent){
+                if(_songsTxt.val() !== ''){
+                  _tempArray.push($('.songsTxt').val()) // push new values to existing array [1,2,3,4,5,6]
+                  localStorage.setItem('songs',_tempArray); // store this new array string to localstorage again
+                  _songsTxt.val('').focus();
+                }
+                else alert('Enter some Value!!!') // validation
+
+              }
+              _songsContianer.html('') // clearing the container before rendering list.
+              for(i=1;i<_tempArray.length;i++){ // looping to render every record.
+                _songsContianer.append("<div>"+i+" ) "+_tempArray[i]+" <button class='deleteQuestion'>X</button><br></div>")
+              }
+          }
+          SongsList.prototype.removeStorage = function(){
+            var confirmation = window.confirm("Are you sure you want to clear Local Storage?")
+            if (confirmation){
+              localStorage.clear(); // clear entire local storage.
+              alert('Local Storage Cleared, All songs are removed from the page!!!')
+              _songsContianer.remove();
+            }
+
+          }
+
+          var songsList = new SongsList()
+          songsList._renderItems();
+
+          $('.clearStorage').on('click',function(){
+              songsList.removeStorage(); // call funciton to clear localStorage
+          })
+          //---------------------------------------------------------------------------------
+          $( 'body').on( "click",".deleteQuestion",  function(){
+              //_renderItems('clickEvent');
+              alert('Delete functinality coming soon!!!')
+          })
+          //---------------------------------------------------------------------------------
+          $('.addSong').on('click',function(){
+              songsList._renderItems('clickEvent'); // call funciton to add new values.
+          });
         })
     </script>
   </head>
