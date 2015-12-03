@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test OBJ</title>
+    <style media="screen">
+      .deleteQuestion{font-size: 10px; font-weight: bold; color:red; border: 2px solid;border-radius: 25px;background-color: #fff;cursor: pointer}
+      div{padding-bottom: 5px; padding-top: 10px;}
+      body{font-family: arial; font-size: 19px;}
+      button{font-size: 20px;}
+      input{font-size: 20px;}
+    </style>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+          function LocalStorageRendered(param){
+              //---------------------------------------------------------------------------------
+              if(localStorage.songs === undefined){
+                localStorage.setItem('songs',[]); // Create localstorage if not present
+              }
+              //---------------------------------------------------------------------------------
+              _songsContianer = $('.songsContianer');
+              _songsTxt = $('.songsTxt');
+              this._renderItems = function(clickEvent){
+
+                  _tempArray = localStorage.songs.split(','); // split localstorage into array eg. [1,2,3]
+                  if(clickEvent){
+                    if(_songsTxt.val() !== ''){
+                      _tempArray.push($('.songsTxt').val()) // push new values to existing array [1,2,3,4,5,6]
+                      localStorage.setItem('songs',_tempArray); // store this new array string to localstorage again
+                      _songsTxt.val('').focus();
+                    }
+                    else alert('Enter some Value!!!') // validation
+
+                  }
+                  _songsContianer.html('') // clearing the container before rendering list.
+                  for(i=1;i<_tempArray.length;i++){ // looping to render every record.
+                    _songsContianer.append("<div>"+i+" ) "+_tempArray[i]+" <button class='deleteQuestion'>X</button><br></div>")
+                  }
+              }
+              //---------------------------------------------------------------------------------
+              _removeStorage = function(){
+                var confirmation = window.confirm("Are you sure you want to clear Local Storage?")
+                if (confirmation){
+                  localStorage.clear(); // clear entire local storage.
+                  alert('Local Storage Cleared, All songs are removed from the page!!!')
+                  _songsContianer.remove();
+                }
+
+              }
+              //---------------------------------------------------------------------------------
+              _removeItems = function(){
+
+              }
+              //---------------------------------------------------------------------------------
+              $('.addSong').on('click',function(){
+                  this._renderItems('clickEvent'); // call funciton to add new values.
+              }.bind(this));
+              //---------------------------------------------------------------------------------
+              $('.clearStorage').on('click',function(){
+                  _removeStorage(); // call funciton to clear localStorage
+              })
+              //---------------------------------------------------------------------------------
+              $( 'body').on( "click",".deleteQuestion",  function(){
+                  //_renderItems('clickEvent');
+                  alert('Delete functinality coming soon!!!')
+              })
+              //---------------------------------------------------------------------------------
+          }
+          var localStorageRendered = new LocalStorageRendered()
+          localStorageRendered._renderItems();
+        })
+    </script>
+  </head>
+  <body>
+
+      <input type="text" class="songsTxt" placeholder="Enter song Name">
+      <button class="addSong">Add Song</button>
+      <button class="clearStorage">Clear Local Storage</button>
+
+      <div class="songsContianer">
+
+      </div>
+  </body>
+</html>
