@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <title>Test OBJ</title>
     <style media="screen">
-      .deleteQuestion{font-size: 10px; font-weight: bold; color:red; border: 2px solid;border-radius: 25px;background-color: #fff;cursor: pointer}
+      .deleteQuestion{border:0px;background-color: #fff; cursor: pointer}
       div{padding-bottom: 5px; padding-top: 10px;}
       body{font-family: arial; font-size: 19px;}
       button{font-size: 20px;}
+      button img{width:20px;margin-bottom: -7px}
       input{font-size: 20px;}
+      .editIcon{border:0px;background-color: #fff; cursor: pointer}
     </style>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>
     <script type="text/javascript">
@@ -21,21 +23,38 @@
               //---------------------------------------------------------------------------------
               this._songsContianer = $('.songsContianer');
               this._songsTxt = $('.songsTxt');
+              this.tempArray = [];
+          }
+          SongsList.prototype.removeInduItem = function(e){
+              var currentIndex = e.currentTarget.getAttribute('itemIndex');
+              this.tempArray.splice(currentIndex, 1)
+              localStorage.setItem('songs',this.tempArray);
+
+              this._renderItems()
+          }
+          SongsList.prototype.editInduItem = function(e){
+              var currentIndex = e.currentTarget.getAttribute('itemIndex');
+              console.log($(event.target).parent().parent().html("<input type='text' value=''>"))
+
+              localStorage.setItem('songs',this.tempArray);
+
+
           }
           SongsList.prototype._renderItems = function(clickEvent){
-              _tempArray = localStorage.songs.split(','); // split localstorage into array eg. [1,2,3]
+
+              this.tempArray = localStorage.songs.split(','); // split localstorage into array eg. [1,2,3]
               if(clickEvent){
                 if(this._songsTxt.val() !== ''){
-                  _tempArray.push($('.songsTxt').val()) // push new values to existing array [1,2,3,4,5,6]
-                  localStorage.setItem('songs',_tempArray); // store this new array string to localstorage again
+                  this.tempArray.push($('.songsTxt').val()) // push new values to existing array [1,2,3,4,5,6]
+                  localStorage.setItem('songs',this.tempArray); // store this new array string to localstorage again
                   this._songsTxt.val('').focus();
                 }
                 else alert('Enter some Value!!!') // validation
 
               }
               this._songsContianer.html('') // clearing the container before rendering list.
-              for(i=1;i<_tempArray.length;i++){ // looping to render every record.
-                this._songsContianer.append("<div>"+i+" ) "+_tempArray[i]+" <button class='deleteQuestion'>X</button><br></div>")
+              for(i=1;i<this.tempArray.length;i++){ // looping to render every record.
+                this._songsContianer.append("<div>"+i+" ) "+this.tempArray[i]+" <button class='editIcon'><img src='http://c.dryicons.com/images/icon_sets/stylistica_icons_set/png/128x128/edit.png'></button> <button class='deleteQuestion' itemIndex="+i+"><img src='http://d.lanrentuku.com/down/png/1209/web-2-icon-set-by-cheezen/delete.png'></button><br></div>")
               }
           }
           SongsList.prototype.removeStorage = function(){
@@ -54,9 +73,11 @@
               songsList.removeStorage(); // call funciton to clear localStorage
           })
           //---------------------------------------------------------------------------------
-          $( 'body').on( "click",".deleteQuestion",  function(){
-              //_renderItems('clickEvent');
-              alert('Delete functinality coming soon!!!')
+          $( 'body').on( "click",".deleteQuestion",  function(event){
+              songsList.removeInduItem(event);
+          })
+          $( 'body').on( "click",".editIcon",  function(event){
+              songsList.editInduItem(event);
           })
           //---------------------------------------------------------------------------------
           $('.addSong').on('click',function(){
