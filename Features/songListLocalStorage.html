@@ -4,13 +4,16 @@
     <meta charset="utf-8">
     <title>Test OBJ</title>
     <style media="screen">
-      .deleteQuestion{border:0px;background-color: #fff; cursor: pointer}
       div{padding-bottom: 5px; padding-top: 10px;}
       body{font-family: arial; font-size: 19px;}
       button{font-size: 20px;}
       button img{width:20px;margin-bottom: -7px}
       input{font-size: 20px;}
-      .editIcon{border:0px;background-color: #fff; cursor: pointer}
+
+      .editIcon{background-image: url('images/edit.png'); width:21px; height:21px;background-size: 21px 21px;  border: 0px;background-color: #fff; margin-left: 10px; cursor: pointer}
+      .saveIcon{background-image: url('images/save.png'); width:21px; height:21px;background-size: 21px 21px;  border: 0px;background-color: #fff; margin-left: 10px;cursor: pointer}
+      .deleteQuestion{background-image: url('images/delete.png'); width:21px; height:21px;background-size: 21px 21px; border: 0px;background-color: #fff;margin-left: 10px;cursor: pointer}
+      .domText{display: inline}
     </style>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>
     <script type="text/javascript">
@@ -33,8 +36,13 @@
               this._renderItems()
           }
           SongsList.prototype.editInduItem = function(e){
-              var currentIndex = e.currentTarget.getAttribute('itemIndex');
-              console.log($(event.target).parent().parent().html("<input type='text' value=''>"))
+              var currentIndex = $(event.target).parent().find('.deleteQuestion').attr('itemindex')
+
+              var currentText = this.tempArray[currentIndex]
+              //var currentText = 'dil to pagal hai'
+              console.log(this.tempArray[currentIndex])
+              $(event.target).parent().html("<input type='text' value='"+currentText+"'> <button class='saveIcon'></button>")
+              //console.log($(event.target).parent().parent().html("<input type='text' value=''>"))
 
               localStorage.setItem('songs',this.tempArray);
 
@@ -54,7 +62,7 @@
               }
               this._songsContianer.html('') // clearing the container before rendering list.
               for(i=1;i<this.tempArray.length;i++){ // looping to render every record.
-                this._songsContianer.append("<div>"+i+" ) "+this.tempArray[i]+" <button class='editIcon'><img src='http://c.dryicons.com/images/icon_sets/stylistica_icons_set/png/128x128/edit.png'></button> <button class='deleteQuestion' itemIndex="+i+"><img src='http://d.lanrentuku.com/down/png/1209/web-2-icon-set-by-cheezen/delete.png'></button><br></div>")
+                this._songsContianer.append("<div>"+i+" ) <div class='domText'>"+this.tempArray[i]+"<button class='editIcon'></button><button class='deleteQuestion' itemIndex="+i+"></button></div><br></div>")
               }
           }
           SongsList.prototype.removeStorage = function(){
@@ -92,8 +100,7 @@
       <button class="addSong">Add Song</button>
       <button class="clearStorage">Clear Local Storage</button>
 
-      <div class="songsContianer">
+      <div class="songsContianer"></div>
 
-      </div>
   </body>
 </html>
