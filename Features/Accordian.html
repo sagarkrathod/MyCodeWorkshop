@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Accordian</title>
+    <style media="screen">
+        .accordian ul{list-style: none;font-family:arial;border: 1px solid black;width: 300px;}
+        .accordian ul li{ margin-left: -40px}
+        .accordian ul li div{background-color: yellow;}
+        .accordian ul li a{background-color: #fff; display:block; padding: 10px; text-decoration: none; color: black; border: 1px solid black}
+        .hidden{display: none}
+        .shown{display: block}
+    </style>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('.accordian').find('a').on('click',function(e){
+
+              $(this).next('div').toggleClass('shown');
+              //$(this).next('div').slideToggle();
+
+          })
+        })
+    </script>
+
+  </head>
+  <body style="background-color:grey">
+      <div class="accordian" id="homePageAccordion">
+        <ul>
+          <li>
+              <a href='javascript:void(0)'>First Tab</a>
+              <div class="hidden">dada <br>dada <br>dada <br>dada <br></div>
+          </li>
+          <li>
+              <a href='javascript:void(0)'>second Tab</a>
+              <div class="hidden">dada <br>dada <br>dada <br>dada <br></div>
+          </li>
+          <li>
+              <a href='javascript:void(0)'>Third Tab</a>
+              <div class="hidden">dada <br>dada <br>dada <br>dada <br></div>
+          </li>
+        </ul>
+      </div>
+      <div class="accordian" id="homePageAccordion1">
+        <ul>
+          <li>
+              <a href='javascript:void(0)'>First Tab</a>
+              <div class="hidden">dada <br>dada <br>dada <br>dada <br></div>
+          </li>
+          <li>
+              <a href='javascript:void(0)'>second Tab</a>
+              <div class="hidden">dada <br>dada <br>dada <br>dada <br></div>
+          </li>
+        
+        </ul>
+      </div>
+
+  </body>
+</html>
