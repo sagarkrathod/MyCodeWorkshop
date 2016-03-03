@@ -1,0 +1,29 @@
+body{margin:0px;font-family: arial}
+.headerTopMenuContainer{background-color#f2f2f2; border:1px solid #d7d7d7; border-top-width:0px; padding: 10px;background-color: #eeeeee;}
+.headerTopMenuContainer a{color: #000; text-decoration: none; padding-left: 10px; font-size: 14px; cursor: pointer}
+
+
+.arrow-down {width: 0;height: 0;border-left: 7px solid transparent;border-right: 7px solid transparent;display: inline;border-top: 7px solid #000;top:16px;position: absolute;}
+.centerAligned{padding-left:14%; padding-right:15%}
+
+
+.logoContainer{background-color:red;float:left; height:100px;width:300px;}
+.logoContainer .logo{background-image:url('../images/logo.png'); background-repeat:no-repeat; width: 281px; height: 82px;margin-top:10px}
+
+.SearchBoxContainer{background-color:blue;float:left; height:100px; width:500px; display:inline-block}
+.SearchBoxContainer .SearchBox{margin-top:40px; background-color:red; width:450px;}
+.SearchBoxContainer input{width:405px; height:27px;border:0px; font-size:20px; padding-left:10px;}
+.SearchBoxContainer a{float:right; height:30px;}
+
+.bagContainer{background-color:green;float:right; height:100px; width:200px;}
+.bagContainer a{margin-top:25px;margin-left:60px}
+.SearchBox a img{float:right; height:30px;}
+
+.mainTopNavigationContainer{clear: both}
+
+.bagContainer a{background-image:url('../images/bagIcon.png');background-repeat:no-repeat; display:block; height:20px; width:120px; background-size:30px; background-position:110px 0px; background-colo:rgrey; padding:15px; text-decoration:none; color:#000; font-weight:bold; margin-top:10px; cursor:pointer}
+
+
+.mainTopNavigation ul li{display:inline-block;}
+.mainTopNavigation ul li a{height:25px; padding-left: 5px;padding-right: 6px; display: inline-block;padding-top: 10px;margin-left: 10px; font-weight: bold; text-decoration: none; color: #fff; font-size: 12px;background-color: #000}
+.mainTopNavigation ul li a:hover{background-color: #fff;color:#000;cursor: pointer}

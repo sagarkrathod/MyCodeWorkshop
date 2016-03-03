@@ -1,0 +1,43 @@
+body{margin:0px;}
+.headerTopMenuContainer{display: none}
+.headerTopMenuContainer a{color: #000; text-decoration: none; padding-left: 10px; font-size: 14px; cursor: pointer}
+
+
+.arrow-down {width: 0;height: 0;border-left: 7px solid transparent;border-right: 7px solid transparent;display: inline;border-top: 7px solid #000;top:16px;position: absolute;}
+.centerAligned{padding-left:0px; padding-right:0px}
+
+
+.logoContainer{background-color:red;float:left; height:100px;width:300px;}
+.logoContainer .logo{background-image:url('../images/logoMobile.png'); background-repeat:no-repeat; width: 281px; height: 82px; background-size: 200px;margin-top:10px}
+
+.SearchBoxContainer{background-color:blue; height:30px; width:100%; display:block}
+.SearchBoxContainer .SearchBox{margin-top:0px; background-color:red; width:450px;}
+.SearchBoxContainer input{width:405px; height:27px;border:0px; font-size:20px; padding-left:10px;}
+.SearchBoxContainer a{float:right; height:30px;}
+
+.bagContainer{background-color:green;float:right; height:100px; width:200px;}
+.bagContainer a{margin-top:0px;margin-left:10px}
+.SearchBox a img{float:left; height:30px;}
+
+.mainTopNavigationContainer{clear: both}
+
+.bagContainer a{background-image:url('../images/bagIcon.png');background-repeat:no-repeat; display:block; height:20px; width:120px; background-size:30px; background-position:110px 0px; background-colo:rgrey; padding:15px; text-decoration:none; color:#000; font-weight:bold; margin-top:10px; cursor:pointer}
+
+
+.mainTopNavigation ul li{display: none}
+
+
+/*body{margin:0px;font-family: arial}
+.headerTopMenuContainer{display: none}
+.headerTopMenuContainer a{color: red; text-decoration: none; padding-left: 10px; font-size: 14px; cursor: pointer}
+.arrow-down {width: 0;height: 0;border-left: 7px solid transparent;border-right: 7px solid transparent;display: inline;border-top: 7px solid #000;top:16px;position: absolute;}
+.centerAligned{padding-left:0px; padding-right:10%}
+.logo{background-image:url('../images/logoMobile.png'); background-repeat:no-repeat; background-size:150px; width:150px;}
+.searchBoxContainer{padding-left:0px; padding-top: 5px; }
+.searchBoxContainer div{border:1px solid #c2c2c2; height:30px; width:100%;}
+.SearchBox input{width:110px; height:27px;border:0px; font-size:20px; padding-left:10px;}
+.SearchBox a img{float:right; height:30px;}
+.bagContainer a{background-image:url('../images/bagIconMobile.png');background-repeat:no-repeat; display:block; height:10px;width:5px; padding-left: 30px;background-size:30px; background-position:-0px 0px; position: absolute; top:10px;color:#fff; cursor:pointer}
+.mainTopNavigation ul li{display:none;}
+.mainTopNavigation ul li a{height:25px; padding-left: 5px;padding-right: 6px; display: inline-block;padding-top: 10px;margin-left: 10px; font-weight: bold; text-decoration: none; color: #fff; font-size: 12px;background-color: #000}
+.mainTopNavigation ul li a:hover{background-color: #fff;color:#000;cursor: pointer}*/
