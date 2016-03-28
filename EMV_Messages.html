@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body{font-family: arial}
+      .messageContainer {}
+      .messageContainer p{margin: 0px; font-weight: bold}
+      .messageContainer a{color: #424242}
+      .messageContainer .messageicon{float: left;}
+      .messageContainer .messageContent{float: left; padding-left: 10px; line-height: 25px; max-width:600px;}
+      .messageContainer .messageContent span{max-width: 300px;}
+      .messageContainer .messageicon{background-image: url('http://www.macys.com/images/icons/mcom-sprite-full.png');background-repeat: norepeat; width: 40px;height: 40px;background-position: -810px 0}
+    </style>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js'></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      var messageObject = {
+        'messages':{
+          'globalMessages':{
+            'description':"<p>We've updated your Wallet with your new Macy’s Credit Card number.</p><span>Your offers & star passes will work with your new 16-digit chip card. Just start using your new card and destroy the old one.</span><br><a href='http://www.macys.com/'>find out more</a>",
+            'dummyDescriptionOne':"<span>Your offers & star passes will work with your new 16-digit chip card. Just start using your new card and destroy the old one.</span><br><a href='http://www.macys.com/'>find out more</a>",
+            'dummyDescriptionTwo':"<span>Your offers & star passes will work with your new 16-digit chip card. Just start using your new card and destroy the old one.</span>",
+            'messageType':'INFO'
+          }
+        }
+      }
+
+        $('#message').append(messageObject.messages.globalMessages.description)
+        $('#messageOne').append(messageObject.messages.globalMessages.dummyDescriptionOne)
+        $('#messageTwo').append(messageObject.messages.globalMessages.dummyDescriptionTwo)
+    })
+    </script>
+
+
+  </head>
+  <body>
+      <h2>UI EMV Messaging.</h2>
+      <h2>***********************************************************************</h2>
+      <h2>Message With Heading, body & link</h2>
+      <div class="messageContainer">
+        <div class="messageicon"></div>
+        <div class="messageContent" id='message'></div>
+      </div>
+      <h2>Message Without Heading</h2>
+      <div class="messageContainer">
+        <div class="messageicon">
+        </div>
+        <div class="messageContent" id='messageOne'></div>
+      </div>
+      <h2>Message Without Heading & without link</h2>
+      <div class="messageContainer" >
+        <div class="messageicon">
+        </div>
+        <div class="messageContent" id='messageTwo'></div>
+      </div>
+  </body>
+  <h2>------------------------------------------------------------------------------------</h2>
+  <h3>1. UI receive error/info message in Java variable/object like 'creditRegisterCardVB'</h3>
+  <h3>2. UI need to read this object and find if there are any messages exist to display.</h3>
+  <h3>3. If message found, read its property called 'messageType' and define CSS style accordingly</h3>
+  <h3>&nbsp;&nbsp;&nbsp;&nbsplike for type "INFO" show above kind of style for MCOM.</h3>
+  <h3>4. The styles & icons are hard coded in UI. Only the message will come from ShopApp as following string. where Tag P is heading, Tag span is body & tag A is link</h3>
+  <h5>&nbsp;&nbsp;&nbsp;&lt;p&gt;We've updated your Wallet with your new Macy’s Credit Card number.&lt;/p&gt;&lt;span&gt;Your offers & star passes will work with your new 16-digit chip card. Just start using your new card and destroy the old one.&lt;/span&gt;&lt;/br&gt;&lt;a href='http://www.macys.com/'&gt;find out more&lt;/a&gt;</h5>
+  <h3>5. styles for P, span and a tag will come from UI (see code for above messages)</h3>
+  <h3>6. There are not more than one message to show at this point, But MCOM is making code in such a way that it could handle multiple message to display at the same time if there is such requirment comes in future.</h3>
+  &nbsp;&nbsp;&nbsp;
+</html>

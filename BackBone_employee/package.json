@@ -1,0 +1,16 @@
+{
+  "name": "backbone_employee",
+  "version": "1.0.0",
+  "description": "this is a Employee Project",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-handlebars": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}

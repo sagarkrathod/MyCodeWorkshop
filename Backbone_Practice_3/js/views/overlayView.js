@@ -4,22 +4,24 @@ define(['jquery','underscore','backbone','handlebars','../templates/overlayTempl
 
   var OverlayView = Backbone.View.extend({
       template:OverlayTemplate,
+      tagName:'div',
+      id:'testID',
       events:{
-          'click #CancelSongOverlayBtn' : 'closeOverlay'
+          'click #overlayCloseButton' : this.closeOverlay,
       },
       initialize:function(){
-        this.render();
 
+        alert('overlay')
         // $( 'body' ).on( 'click', '.addMoreSongsClass', function () {
         //   alert('closing');
         // }.bind( this ) );
       },
       render:function(){
-        $('body').append(OverlayTemplate)
+        this.$el.append(OverlayTemplate);
+        return this;
       },
       closeOverlay:function(){
-        debugger;
-          alert('closing');
+        alert('closing');
       }
   })
   return OverlayView;

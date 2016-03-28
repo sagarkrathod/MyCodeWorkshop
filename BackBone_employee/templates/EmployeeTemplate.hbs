@@ -1,0 +1,42 @@
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Employee Details</div>
+
+  <!-- Table -->
+    <table class="table">
+      <tr>
+        <th><input type='checkbox' id='selectAll'></th>
+        <th>Employee Name</th>
+        <th>Employee Phone</th>
+        <th>Employee Age</th>
+        <th>Employee Address</th>
+      </tr>
+      <tr>
+        <td colspan=5>
+            <div id="allEmployee">
+              <table class="table">
+                {{#each employee}}
+                  <tr>
+                    <td><input type='checkbox'></td>
+                    <td>{{name}}</td>
+                    <td>{{phone}}</td>
+                    <td>{{age}}</td>
+                    <td>{{address}}</td>
+                    <td><span class="glyphicon glyphicon-pencil" style='cursor:pointer' aria-hidden="true"></span></td>
+                  </tr>
+                {{/each}}
+              </table>
+            <div>
+        </td>
+      </tr>
+
+
+
+
+    </table>
+
+</div>
+<div class="">
+  <button type="button" class="btn btn-primary" id='addEmpBtn'>Add Employee</button>
+  <button type="button" class="btn btn-danger" id="deleteEmpBtn">Delete Employee</button>
+</div>

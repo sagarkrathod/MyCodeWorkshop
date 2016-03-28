@@ -23,7 +23,7 @@ define(['jquery','underscore','backbone','handlebars','../templates/songListTemp
       },
       addMoreSongs:function(){
           var overlayView =  new OverlayView();
-          //$('body').append(Overlay)
+          $('body').append(overlayView.render().$el);
       }
   })
 
