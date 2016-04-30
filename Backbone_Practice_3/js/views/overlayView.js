@@ -11,7 +11,7 @@ define(['jquery','underscore','backbone','handlebars','../templates/overlayTempl
       },
       initialize:function(){
 
-        alert('overlay')
+        alert('overlay');
         // $( 'body' ).on( 'click', '.addMoreSongsClass', function () {
         //   alert('closing');
         // }.bind( this ) );
@@ -23,7 +23,7 @@ define(['jquery','underscore','backbone','handlebars','../templates/overlayTempl
       closeOverlay:function(){
         alert('closing');
       }
-  })
+  });
   return OverlayView;
 
-})
+});

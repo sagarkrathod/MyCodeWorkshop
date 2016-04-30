@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Javascript Reduce</title>
+    <script type="text/javascript">
+
+        var Employee = [{'name':'Sagar Rathod','gender':'male','address':'34655 Skylard Dr, Union City, USA'},
+                        {'name':'Sneha Rathod','gender':'female','address':'34655 Skylard Dr, Union City, USA'},
+                        {'name':'Shaurya Rathod','gender':'male','address':'34655 Skylard Dr, Union City, USA'},
+                        {'name':'Sumedha Pawar','gender':'female','address':'Goldan nest, Bhyandar, India'},
+                        {'name':'Aditya Pawar','gender':'male','address':'Goldan nest, Bhyandar, India'},
+                        {'name':'Manoj Pawar','gender':'male','address':'Goldan nest, Bhyandar, India'},
+                        {'name':'Ananya Pawar','gender':'female','address':'Goldan nest, Bhyandar, India'},
+                        {'name':'Ketan Rathod','gender':'male','address':'Nashik, India'},
+                        {'name':'Kashinath Rathod','gender':'male','address':'Aurangabad, India'},
+                        {'name':'Vijaya Rathod','gender':'female','address':'Aurangabad, India'},
+                      ]
+        var Numbers = [12,42,12,54,262,456,14,456,67,25,756]
+
+        var tempNum = 0;
+        var sumOfNumber = Numbers.filter(function(item){
+            return item > 700
+        });
+
+        var forEachItem = Numbers.forEach(function(item){
+            console.log(item);
+        })
+
+        var sumOfNumber1 = Numbers.reduce(function(all,item,index){
+              all += item
+              return all
+        },0);
+
+
+
+
+        console.log(sumOfNumber)
+        console.log(sumOfNumber1)
+
+
+        var Gender = Employee.reduce(function(all,item,index){
+              all[item.gender].push(item)
+              return all;
+        },{male:[],female:[]})
+
+        console.log('********************** All Male **************************')
+
+        for(i=0;i<Gender.male.length;i++){
+            console.log(Gender.male[i].name)
+        }
+        console.log('********************** All Female **************************')
+        for(i=0;i<Gender.female.length;i++){
+            console.log(Gender.male[i].name)
+        }
+
+
+
+
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

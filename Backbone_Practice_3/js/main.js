@@ -5,10 +5,10 @@ require.config({
     underscore:'lib/underscore',
     handlebars:'lib/handlebars'
   }
-})
+});
 
 
 require(['jquery','views/songListView'],function($,SongListView){
     var songListView = new SongListView();
-    console.log(songListView)
-})
+    console.log(songListView);
+});

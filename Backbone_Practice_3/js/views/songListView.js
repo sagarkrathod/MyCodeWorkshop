@@ -15,7 +15,7 @@ define(['jquery','underscore','backbone','handlebars','../templates/songListTemp
             {"movieName":"TAMASHA", "songName":"Heer Toh Badi Sad Hai"},
             {"movieName":"PREM RATAN DHAN PAYO", "songName":"Aaj Unse Milna Hai"},
             {"movieName":"Singh is Bling", "songName":"Dil Kare Chu Che"}
-        ]}
+        ]};
         this.$el.html(this.template(data));
       },
       events:{
@@ -25,8 +25,8 @@ define(['jquery','underscore','backbone','handlebars','../templates/songListTemp
           var overlayView =  new OverlayView();
           $('body').append(overlayView.render().$el);
       }
-  })
+  });
 
   return SongListView;
 
-})
+});
