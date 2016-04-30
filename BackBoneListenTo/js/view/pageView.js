@@ -7,7 +7,6 @@ define(['jquery','underscore','backbone','handlebars','../view/childOverlay'],
                   this.render();
               },
               render:function(){
-                  console.log(this.$el.html('sagar'));
                   var content = this.$el.html("<div id='ParentContainer'> <h1>This is Parent Container</h1> <button id='parentBtn'>Open Overlay</button> </div>");
                   $('body').append(content);
               },
@@ -15,8 +14,6 @@ define(['jquery','underscore','backbone','handlebars','../view/childOverlay'],
                   'click #parentBtn' : "buttonPress"
               },
               buttonPress:function(){
-                //alert('Button Pressed');
-
                 childOverlay = new ChildOverlay();
               }
           });
