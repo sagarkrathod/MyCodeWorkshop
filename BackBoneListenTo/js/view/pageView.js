@@ -17,8 +17,6 @@ define(['jquery','underscore','backbone','handlebars','../view/childOverlay'],
                 childOverlay = new ChildOverlay();
               }
           });
-
-
           return PageView;
-
+          
 });
