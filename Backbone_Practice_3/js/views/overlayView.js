@@ -3,27 +3,20 @@ define(['jquery','underscore','backbone','handlebars','../templates/overlayTempl
   'use strict';
 
   var OverlayView = Backbone.View.extend({
-      template:OverlayTemplate,
-      tagName:'div',
-      id:'testID',
+      className:'songOverlayContainer',
       events:{
-          'click #overlayCloseButton' : this.closeOverlay,
+          'click #CancelSongOverlayBtn' : 'closeOverlay'
       },
       initialize:function(){
-
-        alert('overlay');
-        // $( 'body' ).on( 'click', '.addMoreSongsClass', function () {
-        //   alert('closing');
-        // }.bind( this ) );
+           $('body').append(this.$el);
       },
       render:function(){
-        this.$el.append(OverlayTemplate);
-        return this;
+        this.$el.html(OverlayTemplate);
       },
       closeOverlay:function(){
-        alert('closing');
+        $(this.$el).remove();
       }
   });
   return OverlayView;
+})
 
-});

@@ -11,7 +11,7 @@ define(['jquery','underscore','backbone','handlebars','../templates/songListTemp
         this.render();
       },
       render:function(){
-        var data={"employees":[
+        var data={"songs":[
             {"movieName":"TAMASHA", "songName":"Heer Toh Badi Sad Hai"},
             {"movieName":"PREM RATAN DHAN PAYO", "songName":"Aaj Unse Milna Hai"},
             {"movieName":"Singh is Bling", "songName":"Dil Kare Chu Che"}
@@ -23,7 +23,8 @@ define(['jquery','underscore','backbone','handlebars','../templates/songListTemp
       },
       addMoreSongs:function(){
           var overlayView =  new OverlayView();
-          $('body').append(overlayView.render().$el);
+          overlayView.render();
+          //$('body').append(overlayView.render().$el);
       }
   });
 
