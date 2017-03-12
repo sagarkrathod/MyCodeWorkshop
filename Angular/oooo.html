@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+    var Bikes = [
+     {'bikeName':'honda','owener':'punit'},
+     {'bikeName':'kawasaki','owener':'sagar'},
+     {'bikeName':'honda','owener':'john'},
+     {'bikeName':'honda','owener':'bill'},
+     {'bikeName':'kawasaki','owener':'sera'}
+ ];
+
+      var sortedResult = Bikes.reduce(function(all,item,index){
+
+          // if(all.bikeName !== item.bikeName){  //{'bikeName':'','owener':[],'count':0}
+          //     // empty !== honda
+          //     all.bikeName = item.bikeName;
+          // }
+          console.log(all)
+          return all;
+
+      },[{}])
+
+      sortedResult
+
+    </script>
+  </head>
+  <body style='background-color:black'>
+
+</html>
